@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import api from '../../services/api'
 import { Form, SubmitButton, Title } from './styles'
 
 export default class Main extends Component {
-  state = {
-    newRepository: '',
+  constructor() {
+    super()
+    this.state = { newRepository: '' }
   }
 
   handleInputChange = (event) => {
@@ -12,6 +14,10 @@ export default class Main extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+
+    const { newRepository } = this.state
+
+    console.log(newRepository)
   }
 
   render() {
