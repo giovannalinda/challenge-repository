@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import api from '../../services/api'
+// import api from '../../services/api'
 import { Form, SubmitButton, Title } from './styles'
 
 export default class Main extends Component {
