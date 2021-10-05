@@ -1,23 +1,35 @@
 import React, { Component } from 'react'
-// import api from '../../services/api'
+import api from '../../services/api'
 import { Form, SubmitButton, Title } from './styles'
 
 export default class Main extends Component {
   constructor() {
     super()
-    this.state = { newRepository: '' }
+    this.state = {
+      newRepository: '',
+      repositories: [],
+    }
   }
 
   handleInputChange = (event) => {
     this.setState({ newRepository: event.target.value })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault()
 
-    const { newRepository } = this.state
+    const { newRepository, repositories } = this.state
 
-    console.log(newRepository)
+    const response = await api.get(`/repos/${newRepository}`)
+
+    const data = {
+      name: response.data.full_name,
+    }
+
+    this.setState({
+      repositories: [...repositories, data],
+      newRepository: '',
+    })
   }
 
   render() {
