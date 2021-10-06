@@ -18,6 +18,6 @@ npm run dev
 Open http://localhost:3000 to view it in the browser.
 
 ### 💻 Author
-[Meu Linkedin](https://www.linkedin.com/in/giovanna-linda-de-souza-dias-752960205)
+[Meu Linkedin](https://www.linkedin.com/in/giovannalinda)
 
-made with :purple_heart: by [Giovanna](https://www.linkedin.com/in/giovanna-linda-de-souza-dias-752960205)
+made with :purple_heart: by [Giovanna](https://www.linkedin.com/in/giovannalinda)
