@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import { FaSpinner, FaPlus } from 'react-icons/fa'
+import { FaSpinner, FaPlus, FaGithub } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import api from '../../services/api'
-import { Form, SubmitButton, Title, List } from './styles'
+import { Form, SubmitButton, Title, List, Image } from './styles'
+import image from '../../assets/githublogo.svg'
 
 export default class Main extends Component {
-  constructor() {
-    super()
-    this.state = {
-      newRepository: '',
-      repositories: [],
-      loading: false,
-    }
+  state = {
+    newRepository: '',
+    repositories: [],
+    loading: false,
   }
 
   // Carregar os dados do LocalStorage
@@ -22,7 +21,7 @@ export default class Main extends Component {
     }
   }
 
-  // Salvarar os dados do LocalStorage
+  // Salvar os dados do LocalStorage
   componentDidUpdate(_, prevState) {
     const { repositories } = this.state
     if (prevState.repositories !== repositories) {
@@ -41,7 +40,7 @@ export default class Main extends Component {
 
     const { newRepository, repositories } = this.state
 
-    const response = await api.get(`/repos/${newRepository}`)
+    const response = await api.get(`/repositories/${newRepository}`)
 
     const data = {
       name: response.data.full_name,
@@ -59,7 +58,12 @@ export default class Main extends Component {
 
     return (
       <>
-        <Title>Adicione o repositório do GitHub.</Title>
+        <Image src={image} alt="logo github" />
+        <Title>
+          Adicione o repositório do GitHub.
+          <FaGithub size={45} />
+        </Title>
+
         <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -79,7 +83,9 @@ export default class Main extends Component {
           {repositories.map((repository) => (
             <li key={repository.name}>
               <span>{repository.name}</span>
-              <a href={repository}>Detalhes</a>
+              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+                Detalhes
+              </Link>
             </li>
           ))}
         </List>

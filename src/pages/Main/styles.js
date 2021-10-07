@@ -7,6 +7,18 @@ export const Title = styled.h1`
   margin: 50px auto;
   font-size: 52px;
   font-weight: bold;
+
+  svg {
+    margin: 0 0 0 10px;
+  }
+`
+
+export const Image = styled.img`
+  position: absolute;
+  left: -3rem;
+  top: -10px;
+  z-index: -1;
+  opacity: 0.2;
 `
 
 export const Form = styled.form`
@@ -17,30 +29,41 @@ export const Form = styled.form`
   input {
     width: 500px;
     height: 70px;
-    background: #f0f6fb;
+    background: #161b22;
     border-radius: 5px 0 0 5px;
     border: none;
     padding: 30px;
+    color: #f0f6fb;
   }
 `
 
 export const List = styled.ul`
   list-style: none;
+  max-height: 350px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
   li {
-    margin: 15px auto;
-    width: 635px;
-    height: 90px;
-    background: #f0f6fb;
-    border-radius: 5px;
-    padding: 35px;
     display: flex;
+    padding: 30px;
+    background: #161b22;
+    border-radius: 5px;
+    margin: auto;
+    max-width: 635px;
+    height: 90px;
     justify-content: space-between;
+
+    & + li {
+      margin-top: 10px;
+    }
   }
 
   span {
     font-size: 18px;
-    color: #3d3d4d;
+    color: #f0f6fb;
   }
 
   a {
