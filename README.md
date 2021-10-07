@@ -1,5 +1,9 @@
-### Starting...</h4>
-#### Make a clone</h6>
+<h1 align="center">Repository search application using GitHub Api</h1>
+
+![screencapture-localhost-3000-2021-10-07-05_01_31](https://user-images.githubusercontent.com/71105672/136345017-33d194df-88a5-4223-869b-d371b0c3db4a.png)
+
+### Starting...
+#### Make a clone
 ```
 git clone git@github.com:giovannalinda/challenge-repository.git
 ```
@@ -9,7 +13,7 @@ yarn
 # or
 npm install
 ```
-### Usage</h3>
+### Usage
 ```
 yarn dev
 # or
